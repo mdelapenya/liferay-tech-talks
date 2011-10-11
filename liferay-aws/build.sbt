@@ -6,10 +6,17 @@ description := "Liferay & AWS examples"
 
 version := "0.1"
 
+// JClouds dependencies
+
 libraryDependencies += "org.jclouds" % "jclouds-all" % "1.1.1"
 
-// Add multiple dependencies
-// libraryDependencies ++= Seq(
-//	"net.databinder" %% "dispatch-google" % "0.7.8",
-//	"net.databinder" %% "dispatch-meetup" % "0.7.8"	
-//)
+// JLine dependencies
+
+libraryDependencies += "jline" % "jline" % "0.9.9"
+
+// Spring dependencies
+
+libraryDependencies ++= Seq(
+	"org.springframework" % "spring-core" % "3.0.6.RELEASE",
+	"org.springframework" % "spring-context" % "3.0.6.RELEASE"	
+)
