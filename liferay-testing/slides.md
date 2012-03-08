@@ -9,7 +9,7 @@ About me
 - Interested in distributed systems, scalability and PaaS.
 - AspectJ and Scala enthusiast. Erlang aficionado.
 - Phd student??
-- Twitter:@miguelinlas3
+- Twitter: @miguelinlas3
 
 ---
 
@@ -20,6 +20,7 @@ Agenda
 - Unit testing
 - Integration testing
 - Getting hands dirty
+- Jenkins CI Server
 - Q & A
 
 ---
@@ -31,207 +32,146 @@ The need of testing
 - Make our life happier
 - Help to improve our design
 - Improve our code quality
+
 ---
 
 Unit testing
----------------
+============
 
 - Test our code in an isolated way
--
-
-¿Qué nos llevamos?
-------------------
-
-- Fortalecer la plataforma de desarrollo
-- Incrementar la adopción de uso del IDE
-
----
-
-Plataforma desarrollo plugins
-=============================
-
-Entorno Desarrollo Java
------------------------
-
-- JDK
-- Liferay Server Tomcat Bundle
-- Ant/Maven
-
-Liferay Plugins SDK 
--------------------
-
-- Estructura estándar
-- Basado en Ant
-- Plantillas para cada uno de los tipos de proyecto
-- IDE agnóstico (Idea, Eclipse, STS, ...)
-- Disponible un plugin de Maven
+    - No external dependencies
+- Independent
+- Repeatable
+- Easy to execute (by anybody)
+- Extremely fast
+- Run fast, run often
+- __Well written__!!
 
 ---
 
-Liferay IDE 
-===========
+Unit testing in Liferay
+=======================
 
-- Conjunto de plugins para Eclipse (PDE)
-- Última versión disponible: 1.4.0
-- Soportado en las últimas versiones de Eclipse: Helios, Indigo
-- Disponible para desarrolladores Liferay Portal CE
-- Utiliza la infraestructura subyacente de Plugins SDK
-- Tomcat bundle para la configuración de servidor/runtime
-- Necesidad de la configuración de Plugins SDK
+- Application context is not available
+- Using mocks/stubs approach
+- Tools: __Mockito__ + __PowerMock__ extensions
+- Easy to run: __ant test-unit__
+- Let´s see some examples
 
 ---
 
-Liferay Developer Studio
-========================
+Liferay unit test
+=================
 
-- Personalización Eclipse Indigo + Liferay IDE
-- Última versión disponible: 1.3.1 
-- Disponible para Liferay Portal EE y cursos de formación 
-- Bundles Plugins SDK and Portal EE
-- Bundled examples projects
-- Soporte servidor WebSphere
-- Soporte limitado (hasta el momento Greg por correo)
-
----
-
-Características Liferay IDE
-===========================
-
-- Wizard para la creación de proyectos
-- Wizard de importación
-- Características del proyecto
-- Soporte para servidor Liferay
-- Wizards de desarrollo
-- Diversos editores Liferay
-- Fragmentos (snippets) de código
-
----
-
-Wizard Nuevo Proyecto
-=====================
-
-Soportados 5 tipos de plugins, 3 UI porlet frameworks
-
-![new_project_wizard](img/new_project_wizard.png)
-
----
-
-Wizard de importación
-=====================
-
-Importar un proyecto único,múltiples proyectos del SDK o convertir un proyecto Java existente
-
-![import_project_wizard](img/import_project_wizards.png)
-
----
-
-Project Features
-================
-
-Liferay facets, API classpath contatiner, Liferay 6.x Runtime
-
-![project_features](img/project_features.png)
-
----
-
-Soporte Servidor Liferay Local 
-==============================
-
-Liferay v6.0 (Tomcat 6), Liferay v6.1 (Tomcat 7)
-
-![local_liferay_servers](img/liferay_servers.png)
-
----
-
-Soporte Servidor Liferay Remoto
-===============================
-
-Remote Liferay v6.1 Servers (Tomcat7, Jboss7)
-
-![remote_liferay](img/remote_liferay.png)
-
----
-
-
-Wizards de desarrollo
-=====================
-
-Portlet (JSF, Vaadin), Hook, Layout Template
-
-![dev_wizards](img/dev_wizards.png)
-
----
-
-Editores Liferay
-================
-
-Portlet, Service Builder, Layout Template
-
-![editors](img/editors.png)
-
----
-
-Fragmentos de código
-====================
-
-Taglibs, Models, Search Container
-
-![snippets](img/snippets.png)
-
----
-
-Planes de futuro
-================
-
-Liferay IDE
+Using mocks
 -----------
 
-- Soporte maven
-- Funcionalidad manejo del portal
-- Integración con el Marketplace
-- Desarrollo Liferay & Cloud
-- Control completo del ciclo de vida del producto (Eclipse)
-
-Liferay Developer Studio
-------------------------
-- Editor diagramas de workflow
-- Soporte para Weblogic
+- Inyecting mock dependencies
+- Mocking method calls
+    - Returning values
+    - Void methods
+- Mocking static methods
+- Verify
+- Spy
 
 ---
 
-Demo
-====
+Getting hands dirty
+====================
 
-Liferay IDE 1.4
----------------
-- Desarrollo remoto
-- Editor de configuración del portlet
-- Editor Service builder
-
-Liferay IDE 1.5 (actualmente en desarrollo)
--------------------------------------------
-- Wizard para interactuar con el Marketplace 
+- Go next to your buddy
+- Choose a class
+    - A well known class (if possible)
+- Let´s do some unit tests
 
 ---
 
-Contribuye!
-===========
+Integration testing
+===================
 
-Código fuente
--------------
-
-- [GitHub project](http://github.com/liferay/liferay-ide)
-- Uso de Maven/Tycho en la construcción del producto
-- Uso de Eclipse PDE
-
-OSGi
-----
-- Plugins Eclipse son bundles OSGI
-- Soporte OSGI en Liferay (en proceso)
-- La adopción de OSGI supuso un crecimiento notable de la plataforma Eclipse
+- Test our code with the real dependencies
+    - Database, real services, ...
+- Components should work altogether
+- Independent
+- Slower than unit tests
+- __Well written__!!
 
 ---
 
-Preguntas (y esperemos respuestas)
-==================================
+Liferay integration test
+========================
 
+- Loading the application context
+    - Liferay JUnit runner
+- Listeners support
+- Transactional support
+- Test and TestSuites
+
+---
+
+Getting hands dirty
+====================
+
+- Go next to your buddy
+- Choose a class
+    - A well known class (if possible)
+- Let´s do some integration tests
+
+---
+
+Improvements
+============
+
+- Testing taglibs
+- Testing actions
+- More??
+
+---
+
+Useful commands
+===============
+
+- __ant test__ : run all the tests
+- __ant test-unit__ : run the unit tests
+- __ant test-integration__ : run all the integration tests
+- __ant test-class -Dclass=XXX__: run the class
+- __ant sonar__: generates the sonar quality metrics
+
+---
+
+Useful configuration
+====================
+
+TODO Complete with an image of the configuration
+
+---
+
+Jenkins CI Server
+====================
+
+- Currently monitoring __liferay/liferay-portal/master__
+- When a (or multiple) changes are detected run all the tests
+- Useful tests results
+- Plugins are checked after each succesfull build of the portal
+    - At this moment only compiles the plugins
+- Quick tour over Jenkins
+
+---
+
+Sonar quality metrics
+=====================
+
+- In addition to Jenkins
+- Run once a week (currently on Saturday)
+- Quality metrics and reports
+    - Code coverage
+    - Unit tests results
+    - Code quality rules
+    - Design graphic
+    - Code complexity
+    - ...
+
+---
+
+Q & A
+=====================
