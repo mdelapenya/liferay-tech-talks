@@ -24,25 +24,20 @@ Agenda
 
 ---
 
-The need of unit testing
+The need of testing
 ========================
 
 - Find bugs as soon as possible
 - Make our life happier
 - Help to improve our design
- 
-Objetivo
---------
+- Improve our code quality
+---
 
-- Conocer a desarrolladores de plugins para Liferay
-
-Audiencia
+Unit testing
 ---------------
 
-- Desarrolladores software
-- Desarrolladores de plugins Liferay
-- Construcción de aplicaciones para el Marketplace
-- "Newbies"
+- Test our code in an isolated way
+-
 
 ¿Qué nos llevamos?
 ------------------
