@@ -89,6 +89,13 @@ Getting hands dirty
 Integration testing
 ===================
 
+![integration_testing](img/integration_testing.jpg)
+
+---
+
+Integration testing
+===================
+
 - Test our code with the real dependencies
     - Database, real services, ...
 - Components should work altogether
@@ -136,13 +143,6 @@ Useful commands
 - __ant test-integration__ : run all the integration tests
 - __ant test-class -Dclass=XXX__: run the class
 - __ant sonar__: generates the sonar quality metrics
-
----
-
-Useful configuration
-====================
-
-TODO Complete with an image of the configuration
 
 ---
 

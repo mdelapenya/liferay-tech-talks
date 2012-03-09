@@ -140,6 +140,10 @@ section, .slide header:only-child h1 {
   overflow: hidden;
 }
 
+section img {
+  height: 440px;
+}
+
 a {
   color: inherit;
   display: inline-block;
