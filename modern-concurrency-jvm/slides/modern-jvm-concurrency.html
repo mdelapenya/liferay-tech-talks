@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Modern Concurrency in the JVM</title>
+	
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+	
+	 <!-- fonts -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Sans+Narrow:400,700|Ubuntu+Mono:400,700' type='text/css'>
+
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/web-2.0.css">
+	
+	<link rel="stylesheet" id="transition-theme-link" href="themes/transition/fade.css">   
+    <link rel="stylesheet" id="style-theme-link" href="liferay.css">
+	
+	<script src="jquery-1.7.2.min.js"></script>
+    <script src="modernizr.custom.js"></script>
+    <script src="core/deck.core.js"></script>
+    <script src="extensions/hash/deck.hash.js"></script>
+    <script src="extensions/menu/deck.menu.js"></script>
+    <script src="extensions/goto/deck.goto.js"></script>
+    <script src="extensions/status/deck.status.js"></script>
+
+    <link rel="stylesheet" href="solarized_light.css">
+    <script src="highlight.pack.js"></script>
+
+   <script>
+    $(document).ready(function() {
+            $.deck('.slide');
+            $('pre').each(function(i, e) {
+                    hljs.highlightBlock(e, '  ');
+            });
+            $('code').each(function(i, e) {
+                    hljs.highlightBlock(e);
+            });
+    });
+    </script>
+</head>
+
+<body class="deck-container">
+
+<p class="deck-status">slide <span class="deck-status-current"></span> / <span class="deck-status-total"></span></p>
+
+<section class="slide" style="font-size: 100%">
+   <h1>
+    <div>Modern concurrency in the JVM</div>
+    <div style="font-size: 50%">Miguel Pastor, Liferay</div>
+    <div style="font-size: 50%">miguel.pastor@liferay.com</div>
+    <div style="font-size: 50%">Twitter handler: <a href="http://twitter.com/miguelinlas3">miguelinlas3</a></div>
+    <div style="font-size: 50%"><br/></div>
+   </h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>A little bit about me</h2>
+	<ul>
+		<div class="slide">
+			<li>Working at the "infrastructure" side</li>
+		</div>
+		<div class="slide">
+			<li>Cloud computing and distributed systems</li>
+		</div>		
+		<div class="slide">
+			<li>Interests in concurrent and distributed programming. Functional programming advocate!
+		</div>
+		<div class="slide">
+			<li>Scala, OSGI and AspectJ enthusiast</li>
+		</div>
+		<div class="slide">
+			<li>Erlang aficionado</li>
+		</div>
+		<div class="slide">
+			<li>Twitter handler: <a href="http://twitter.com/miguelinlas3">miguelinlas3</a></li>
+		</div>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>What will we talking about?</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Agenda</h2>
+	<ul>
+		<div class="slide">
+			<li>Benefits and perils of concurrency</li>
+		</div>
+		<div class="slide">
+			<li>Quick overview</li>
+		</div>
+		<div class="slide">
+			<li>"Modern" approaches</li>
+			<div class="slide">	
+				<ul>			
+					<div class="slide">	
+						<li>Actors</li>
+					</div>
+					<div class="slide">	
+						<li>Transactional memory</li>
+					</div>
+					<div class="slide">	
+						<li>Futures</li>
+					</div>
+				<ul>
+			</div>
+		</div>
+		<div class="slide">
+			<li>Everything on top of the JVM</li>
+		</div>
+		<div class="slide">
+			<li>Questions & Answers</li>
+		</div>
+	</ul>
+</section>
+
+<section class="slide">
+	<h1>The power and perils of concurrency</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>TODO Complete!!</h2>
+</section>
+
+<section class="slide">
+	<h1>
+		What do we want!? 
+		<div style="font-size: 50%">A simpler model!</div>
+	</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Goals</h2>
+	<div class="slide">
+		<p>Threads are hard!</p>
+	</div>
+	<div class="slide">
+		<p>What are we looking for?</p>
+		<ul>
+			<div class="slide">
+				<li>Looking for a simpler concurrency model</li>
+			</div>
+			<div class="slide">
+				<li>Scaling our software in an easier way</li>
+			</div>
+			<div class="slide">
+				<li>Including fault tolerance in our developments</li>
+			</div>
+		</ul>
+	</div>
+	<div class="slide">
+		<p>How do we want to achieve the previous goals?</p>
+		<div class="slide">
+			<li>Single unified programming model</li>
+		</div>
+		<div class="slide">
+			<li>Managed runtime</li>
+		</div>
+		<div class="slide">
+			<li>Could it be Open Source? :)</li>
+		</div>
+	</div>
+</section>
+
+<section class="slide">
+	<h1>
+		Actor model 
+		<div style="font-size: 50%">Programming at a higher level</div>
+	</h1>	
+</section>
+
+<section class="slide" style="margin-left:11%">	
+	<h2>Programming at a higher level</h2>	
+	<div class="slide">
+		<p>Never think about shared state, locks, visibility, etc</p>
+	</div>
+	<div class="slide">
+		<p>Messages flow over the system. Low level concurrency plumbing becomes a simple workflow</p>	
+	</div>
+	<div class="slide">
+		<p>Scalability, high CPU use, low latency, scalability. FOR FREE! </p>
+	</div>
+	<div class="slide">
+		<p>Great, and proven, model from handling errors</p>
+	</div>
+
+	<div class="slide">
+		<h2>Distributable by design</h2>	
+	</div>
+	<div class="slide">
+		<p>Actors are location transparent and distributable by design</p>
+	</div>
+	<div class="slide">
+		<p>Scaling up and out for free</p>	
+	</div>
+	<div class="slide">
+		<p>Cloud? Great fit!</p>
+		<ul>
+			<div class="slide">
+				<li>Elastic and dynamic</li>
+			</div>
+			<div class="slide">
+				<li>Fault-tolerant and self-healing</li>
+			</div>
+			<div class="slide">
+				<li>Adaptive load-balancing, cluster rebalancing and actor migration</li>
+			</div>
+			<div class="slide">
+				<li>Loosely coupling</li>
+			</div>
+			<div class="slide">
+				<li>Change and adapt at runtime</li>
+			</div>
+		</ul>
+	</div>
+</section>
+
+<section class="slide">
+	<h1>So, what is the Actor model?</h1>	
+	<a href="">Hewitt on actors</a>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Actor's definition</h2>
+	<blockquote cite="http://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask">  		
+		<p>Fundamental unit of computation that embodies:</p>
+		<ul>
+			<li>Processing</li>
+			<li>Storage</li>
+			<li>Communication</li>
+		</ul>
+
+		<p>Three axioms. When an Actor receives a message it can:</p>
+		<ul>
+			<li>Create new Actors</li>
+			<li>Send messages to Actors it knows</li>
+			<li>Designate how it should handle the next message it receives</li>
+		</ul>
+
+  		<p><cite><a href="http://channel9.msdn.com/Shows/Going+Deep/Hewitt-Meijer-and-Szyperski-The-Actor-Model-everything-you-wanted-to-know-but-were-afraid-to-ask">Carl Hewitt</a></cite></p>
+	</blockquote>
+</section>
+
+<section class="slide">
+	<h1>What can I use an actor for?</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Actor usages</h2>
+	<div class="slide">
+		<p>A thread</p>
+	</div>
+	<div class="slide">
+		<p>Object instance or component</p>
+	</div>
+	<div class="slide">
+		<p>Callback or listener</p>
+	</div>
+	<div class="slide">
+		<p>Router, load-balancer or pool</p>
+	</div>
+	<div class="slide">
+		<p>Java EE Session Bean or Message-Driven Bean</p>
+	</div>
+	<div class="slide">
+		<p>Service or singleton</p>
+	</div>
+	<div class="slide">
+		<p>Finite state machine (FSM)</p>
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Actor operations</h2>
+	<div class="slide">
+		<h2>Define an actor</h2>
+		<pre class="scala">
+case class Message(who: String, time:Long)
+
+class MetricsHandlerActor extends Actor with ActorLogging {
+	def receive = {
+		case Message(who, time) => log.info("Received message {} with time {}", who, time)
+	}
+}
+		</pre>	
+	</div>
+	<div class="slide">
+		<h2>Create an actor</h2>
+		<pre class="scala">
+ActorSystem system = ActorSystem.create("SystemName");
+
+ActorRef messageHandler = system.actorOf(new Props(MetricsHandlerActor.class), "messageHandler");
+		</pre>	
+	</div>
+
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Actor operations</h2>
+	<div class="slide">
+		<h2>Sending messages</h2>
+		<pre class="scala">
+	messageHandler.tell(new Message("JVM-MemoryUsage", new Date().getTime()));
+		</pre>	
+	</div>
+	<div class="slide">
+		<h2>Reply to a message</h2>
+		<pre class="scala">
+class MetricsHandlerActor extends Actor with ActorLogging {
+	def receive = {
+		case Message(who, time) => { 
+				log.info("Received message {} with time {}", who, time)
+				sender tell ("Received message " + who)
+			}
+	}
+}		</pre>	
+	</div>
+
+</section>
+
+<section class="slide">
+	<h1>Questions & Answers (hopefully)</h1>
+</section>
+
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+</body>
+</html>
