@@ -131,7 +131,54 @@
 </section>
 
 <section class="slide" style="margin-left:11%">
-	<h2>TODO Complete!!</h2>
+	<h2>Concurrency's power</h2>
+	<div class="slide">
+		<p>Apps more responsive</p>
+		<div class="slide">
+			<p>Faster apps</p>
+			<ul>
+				<div class="slide">
+					<li>CPU intensive</li>
+				</div>
+				<div class="slide">
+					<li>Data crunchers</li>
+				</div>
+				<div class="slide">
+					<li>Services</li>
+				</div>
+			</ul>
+		</div>
+	</div>
+	<div class="slide">
+		<h2>Concurrency's perils</h2>
+	</div>
+	<div class="slide">
+		<div class="slide">
+			<p>Starvation</p>
+		</div>
+		<div class="slide">
+			<p>Deadlocks</p>
+		</div>
+		<div class="slide">
+			<p>Race conditions</p>
+		</div>
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Know you visibility</h2>
+	<div class="slide">
+		<p>Copy memory from local/working to main memory</p>
+	</div>
+	<div class="slide">
+		<p>Changes are visible when crossing the memory barrier</p>
+		<div class="slide">
+			<p>syncronized and volatile</p>
+		</div>
+	</div>
+	<div class="slide">
+		<p>Happens before rules</p>
+	</div>
 </section>
 
 <section class="slide">
@@ -328,6 +375,288 @@ class MetricsHandlerActor extends Actor with ActorLogging {
 }		</pre>	
 	</div>
 
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Actor operations</h2>
+	<div class="slide">
+		<h3>Become/Unbecome</h3>
+		<pre class="scala">
+class HotSwapActor extends Actor {
+  import context._
+  def angry: Receive = {
+    case "foo" ⇒ sender ! "I am already angry?"
+    case "bar" ⇒ become(happy)
+  }
+ 
+  def happy: Receive = {
+    case "bar" ⇒ sender ! "I am already happy :-)"
+    case "foo" ⇒ become(angry)
+  }
+ 
+  def receive = {
+    case "foo" ⇒ become(angry)
+    case "bar" ⇒ become(happy)
+  }
+}	
+		</pre>	
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Remote depoloyment</h2>
+	<pre class="scala">
+akka {
+	actor {
+		provider = akka.remote.RemoteActorRefProvider
+			deployment {
+				/MessageHandler {
+					remote = akka://SystemName@machine:2552
+				}
+			}
+	}
+}
+	</pre>
+
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>More features . . . (not covered here in detail)</h2>
+	<p>Router</p>
+	<p>Router + Resizer	</p>
+	<p>Failure management</p>
+	<p>Supervision</p>
+	<p></p>
+</section>
+
+<section class="slide">
+	<h1>The future you promised me</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Futures</h2>
+	<div class="slide">
+		<p>Reason about performing many operations in parallel. In an efficient and non-blocking way</p>		
+	</div>
+	<div class="slide">
+		<p>Abstraction which represents a value which may become available at some point</p>
+	</div>
+	<div class="slide">
+		<p>Inmutable! Holder cannot write or failed the future</p>
+	</div>
+	<div class="slide">
+		<h3>Creating a future</h3>
+		<pre class="scala">
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+
+val session = socialNetwork.createSessionFor("user", credentials)
+
+val f: Future[List[Friend]] = future {
+  session.getFriends()
+}		
+		</pre>		
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Callbacks</h2>
+	<div class="slide">
+		<p>Interested in the result of the computation; not only side effects</p>		
+	</div>
+	<div class="slide">
+		<p>Able to register a callback. Completely non blocking!</p>
+	</div>
+	<div class="slide">
+		<p></p>
+	</div>
+	<div class="slide">
+		<h3>Register callbacks</h3>
+		<pre class="scala">
+val f: Future[List[String]] = future {
+  session.getRecentPosts
+}
+
+// handle both cases: Success and Failure
+f onComplete {
+  case Success(posts) => for (post <- posts) println(post)
+  case Failure(t) => println("An error has occured: " + t.getMessage)
+}		
+// only handle Success
+f onSuccess {
+  case posts => for (post <- posts) println(post)
+}
+// only handle Failure
+f onFailure {
+  case t => println("An error has occured: " + t.getMessage)
+}
+		</pre>		
+	</div>
+</section>
+<section class="slide" style="margin-left:11%">
+	<h2>Futures composition</h2>
+	<div class="slide">
+		<h3>Using callbacks</h3>
+		<pre class="scala">
+val rateQuote = future {
+  connection.getCurrentValue(USD)
+}
+rateQuote onSuccess { case quote =>
+  val purchase = future {
+    if (isProfitable(quote)) connection.buy(amount, quote)
+    else throw new Exception("not profitable")
+  }
+  
+  purchase onSuccess {
+    case _ => println("Purchased " + amount + " USD")
+  }
+}			
+		</pre>				
+	</div>
+	<div class="slide">
+		<h3>Composition</h3>
+		<pre class="scala">
+val rateQuote = future {
+  connection.getCurrentValue(USD)
+}
+
+val purchase = rateQuote map { quote => 
+  if (isProfitable(quote)) connection.buy(amount, quote)
+  else throw new Exception("not profitable")
+}
+
+purchase onSuccess {
+  case _ => println("Purchased " + amount + " USD")
+}			
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<h1>Software Transactional Memory</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Shared mutability</h2>
+	<div class="slide">
+		<p>Sometimes we will deal with shared state</p>
+	</div>
+	<div class="slide">
+		<p>Traditional approach: locking, granularity, . . .</p>
+	</div>
+	<div class="slide">
+		<p>Software Transactional Memory</p>
+		<ul>
+			<div class="slide">
+				<li>Heap + Stack: transactional dataset</li>
+			</div>
+			<div class="slide">
+				<li>Similarities with relational databases: begin, commit, rollback</li>
+			</div>
+			<div class="slide">
+				<li>Retry on collision's presence</li>
+			</div>
+			<div class="slide">
+				<li>Rollback on abort</li>
+			</div>
+			<div class="slide">
+				<li>Transaction composability</li>
+			</div>
+		</ul>
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>Building a double linked list</h2>
+	<div class="slide">
+		<h3>Use Ref for shared variables</h3>
+		<pre class="scala">
+import scala.concurrent.stm._
+
+class ConcurrentIntList {
+  private class Node(val elem: Int, prev0: Node, next0: Node) {
+    val isHeader = prev0 == null
+    // Ref represents a single mutable cell
+    val prev = Ref(if (isHeader) this else prev0)
+    val next = Ref(if (isHeader) this else next0)
+  }
+  private val header = new Node(-1, null, null)
+		</pre>
+	</div>
+	<div class="slide">
+		<h3>Wrap your code in atomic</h3>
+		<pre class="scala">
+def addLast(elem: Int) {
+    atomic { implicit txn =>
+      val p = header.prev()
+      val newNode = new Node(elem, p, header)
+      p.next() = newNode
+      header.prev() = newNode
+    }
+  }
+		</pre>
+	</div>
+</section>
+
+<section class="slide">
+	<h1>Anything else?</h1>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>More approaches (random order)</h2>
+	<div class="slide">
+		<p><a href="http://lmax-exchange.github.com/disruptor/">The Disruptor</a></p>
+	</div>
+	<div class="slide">
+		<p><a href="http://vertx.io/">Vertex</a>: NodeJS on top of the JVM</p>
+		<pre class="java">
+import org.vertx.java.core.Handler;
+import org.vertx.java.core.http.HttpServerRequest;
+import org.vertx.java.deploy.Verticle;
+
+public class Server extends Verticle {
+    public void start() {
+        vertx.createHttpServer().requestHandler(new Handler<HttpServerRequest>() {
+            public void handle(HttpServerRequest req) {
+                String file = req.path.equals("/") ? "index.html" : req.path;
+                req.response.sendFile("webroot/" + file);
+            }
+        }).listen(8080);
+    }
+}			
+		</pre>
+	</div>
+	<div class="slide">
+		<p><a href="http://clojure.org/">Clojure language</a></p>
+	</div>
+	<div class="slide">
+		<p><a href="http://gpars.codehaus.org/">Gpars</a> Concurrency programming in Groovy</p>
+	</div>
+	<div class="slide">
+		<p><a href="http://docs.scala-lang.org/overviews/parallel-collections/overview.html">Scala parallel collections</a></p>
+	</div>
+</section>
+
+<section class="slide" style="margin-left:11%">
+	<h2>References</h2>
+
+	<div class="slide">
+		<h3>Frameworks, languages and tools</h3>
+		<p><a href="http://akka.io/">Akka</a></p>
+		<p><a href="http://clojure.org/">Clojure</a></p>
+		<p><a href="http://lmax-exchange.github.com/disruptor/">Disruptor</a></p>
+		<p><a href="http://gpars.codehaus.org/">Gpars</a></p>
+		<p><a href="http://nbronson.github.com/scala-stm/">Scala STM</a></p>
+		<p><a href="http://vertx.io/">Vertex</a></p>
+		<h3>Slides, videos and books</h3>
+		<p><a href="http://www.slideshare.net/jboner/introducing-akka">Jonas Boner introducing Akka</a>
+		<p><a href="http://skillsmatter.com/podcast/design-architecture/the-future-i-was-promised">Viktor Klang on The future I was promised</a>
+		<p><a href="http://www.slideshare.net/eonnen/high-performance-network-programming-on-the-jvm-oscon-2012">Eric Onnen on High Performance Network Programming in the JVM</a>
+		<p><a href="http://www.manning.com/evans/">The Well-Grounded Java developer</a> (paper version available at the office)</p>
+		<p><a href="http://www.infoq.com/presentations/Lock-free-Algorithms">Martin Thompson on Lock-Free algorithms</a></p>
+		<p><a href="http://pragprog.com/book/vspcon/programming-concurrency-on-the-jvm">Programming Concurrency on the JVM: Mastering Synchronization, STM, and Actors</a> (I have a copy)</p>
+		<p><a href="http://www.amazon.es/Art-Multiprocessor-Programming-Maurice-Herlihy/dp/0123973376/ref=sr_1_1?ie=UTF8&qid=1349767600&sr=8-1">The art of multiprocessor programming</a></p>
+	</div>
 </section>
 
 <section class="slide">
