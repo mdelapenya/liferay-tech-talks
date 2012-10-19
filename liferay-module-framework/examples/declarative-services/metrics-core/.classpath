@@ -1,0 +1,12 @@
+<classpath>
+  <classpathentry kind="src" path="src/main/java" including="**/*.java"/>
+  <classpathentry kind="src" path="src/main/resources" excluding="**/*.java"/>
+  <classpathentry kind="output" path="target/classes"/>
+  <classpathentry kind="var" path="M2_REPO/org/apache/felix/org.apache.felix.scr/1.6.0/org.apache.felix.scr-1.6.0.jar" sourcepath="M2_REPO/org/apache/felix/org.apache.felix.scr/1.6.0/org.apache.felix.scr-1.6.0-sources.jar"/>
+  <classpathentry kind="var" path="M2_REPO/com/liferay/portal/portal-service/6.2.0/portal-service-6.2.0.jar" sourcepath="M2_REPO/com/liferay/portal/portal-service/6.2.0/portal-service-6.2.0-sources.jar">
+    <attributes>
+      <attribute value="jar:file:/home/migue/.m2/repository/com/liferay/portal/portal-service/6.2.0/portal-service-6.2.0-javadoc.jar!/" name="javadoc_location"/>
+    </attributes>
+  </classpathentry>
+  <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+</classpath>
