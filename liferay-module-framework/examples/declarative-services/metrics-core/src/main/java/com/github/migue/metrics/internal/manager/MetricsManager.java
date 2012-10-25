@@ -26,6 +26,10 @@ import com.liferay.portal.service.UserLocalService;
 public class MetricsManager {
 
 	void activate(ComponentContext componentContext) {
+		// log all the users in the portal
+
+		_logAllTheUsers();
+
 		System.out.println("Starting the metrics manager. Waiting for metrics providers . . .");
 
 		_executorService.execute(new Runnable() {
@@ -33,15 +37,7 @@ public class MetricsManager {
 			@Override
 			public void run() {
 				while (true) {
-					// run forever and collect metrics every 1 seconds
-
-					try {
-						List<User> noContacts = _userLocalService.getNoContacts();
-						System.out.println("Reference: " + _userLocalService);
-						
-					} catch (SystemException e) {
-						e.printStackTrace();
-					}
+					// run forever and collect metrics every 2 seconds
 
 					List<Metric> metrics = collect();
 
@@ -50,7 +46,7 @@ public class MetricsManager {
 					}
 
 					try {
-						Thread.currentThread().sleep(1000);
+						Thread.currentThread().sleep(2000);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
@@ -90,6 +86,20 @@ public class MetricsManager {
 		}
 
 		return metrics;
+	}
+
+	private void _logAllTheUsers() {
+		try {
+			List<User> users = _userLocalService.getUsers(-1, -1);
+
+			for (User user : users) {
+				System.out.println(
+					"The user " + user.getEmailAddress() + " is registered");
+			}
+		} catch (SystemException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	private UserLocalService _userLocalService;

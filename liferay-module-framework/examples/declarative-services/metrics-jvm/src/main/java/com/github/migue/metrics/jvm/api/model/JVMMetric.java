@@ -19,10 +19,12 @@ public class JVMMetric extends Metric {
 	public String toString() {
 		StringBuffer sb = new StringBuffer(4);
 		
-		sb.append("Metric: " + name());
-		sb.append("Current time: " + System.currentTimeMillis());
-		sb.append("Max memory: " +  Runtime.getRuntime().maxMemory());
-		sb.append("Available processors: " +  Runtime.getRuntime().availableProcessors());
+		sb.append("Metric: " + name() + "\n");
+		sb.append("Current time: " + System.currentTimeMillis() + "\n");
+		sb.append("Max memory: " +  Runtime.getRuntime().maxMemory() + "\n");
+		sb.append(
+			"Available processors: " +  
+				Runtime.getRuntime().availableProcessors() + "\n");
 
 		return sb.toString();
 	}

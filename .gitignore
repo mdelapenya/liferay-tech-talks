@@ -2,4 +2,6 @@
 **/.classpath
 **/.settings
 **/.cache
-**/target
+**/target/*.*
+**/*.class
+**/*.jar
