@@ -1,0 +1,602 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hotspot_log version='160 1' process='16677' time_ms='1395785705335'>
+<vm_version>
+<name>
+Java HotSpot(TM) 64-Bit Server VM
+</name>
+<release>
+24.45-b08
+</release>
+<info>
+Java HotSpot(TM) 64-Bit Server VM (24.45-b08) for bsd-amd64 JRE (1.7.0_45-b18), built on Oct  8 2013 05:54:16 by &quot;java_re&quot; with gcc 4.2.1 (Based on Apple Inc. build 5658) (LLVM build 2336.11.00)
+</info>
+</vm_version>
+<vm_arguments>
+<args>
+-XX:MaxInlineSize=0 -XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining -XX:+LogCompilation 
+</args>
+<command>
+inlining.Inline 101111
+</command>
+<launcher>
+SUN_STANDARD
+</launcher>
+<properties>
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.version=24.45-b08
+java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+java.vm.info=mixed mode, sharing
+java.ext.dirs=/Users/migue/Library/Java/Extensions:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java
+java.endorsed.dirs=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/endorsed
+sun.boot.library.path=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib
+java.library.path=/Users/migue/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:.
+java.home=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre
+java.class.path=.
+sun.boot.class.path=/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/resources.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/rt.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/sunrsasign.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/jsse.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/jce.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/charsets.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/jfr.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/lib/JObjC.jar:/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home/jre/classes
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.version=1.7
+java.vm.vendor=Oracle Corporation
+sun.java.command=inlining.Inline 101111
+sun.java.launcher=SUN_STANDARD
+</properties>
+</vm_arguments>
+<tty>
+<writer thread='20739'/>
+<thread_logfile thread='20739' filename='/var/folders/hw/j7g6_xxn6tv9xry_3jx_crv80000gn/T//hs_c20739_pid16677.log'/>
+<writer thread='20227'/>
+<thread_logfile thread='20227' filename='/var/folders/hw/j7g6_xxn6tv9xry_3jx_crv80000gn/T//hs_c20227_pid16677.log'/>
+<writer thread='3335'/>
+<task_queued compile_id='1' method='java/lang/String hashCode ()I' bytes='55' count='660' backedge_count='5000' iicount='660' stamp='0.050' comment='count' hot_count='660'/>
+<task_queued compile_id='2' method='java/lang/String indexOf (II)I' bytes='70' count='350' backedge_count='5000' iicount='350' stamp='0.054' comment='count' hot_count='350'/>
+<writer thread='20739'/>
+<writer thread='20227'/>
+                            @ 66   java.lang.String::indexOfSupplementary (71 bytes)   too big
+<nmethod compile_id='2' compiler='C2' entry='0x000000010dfbb320' size='960' address='0x000000010dfbb1d0' relocation_offset='288' insts_offset='336' stub_offset='720' scopes_data_offset='768' scopes_pcs_offset='832' dependencies_offset='912' handler_table_offset='920' nul_chk_table_offset='944' oops_offset='760' method='java/lang/String indexOf (II)I' bytes='70' count='379' backedge_count='6206' iicount='379' stamp='0.056'/>
+<writer thread='20739'/>
+<nmethod compile_id='1' compiler='C2' entry='0x000000010dfb7ba0' size='848' address='0x000000010dfb7a50' relocation_offset='288' insts_offset='336' stub_offset='688' scopes_data_offset='720' scopes_pcs_offset='760' dependencies_offset='824' nul_chk_table_offset='832' oops_offset='712' method='java/lang/String hashCode ()I' bytes='55' count='835' backedge_count='7620' iicount='835' stamp='0.056'/>
+<writer thread='3335'/>
+<task_queued compile_id='3' method='java/lang/Math min (II)I' bytes='11' count='5000' backedge_count='1' iicount='10000' stamp='0.063' comment='count' hot_count='10000'/>
+<writer thread='20227'/>
+<writer thread='3335'/>
+<task_queued compile_id='4' method='inlining/Inline add (II)I' bytes='4' count='5000' backedge_count='1' iicount='10000' stamp='0.063' comment='count' hot_count='10000'/>
+<writer thread='20227'/>
+<nmethod compile_id='3' compiler='C2' entry='0x000000010dfb6240' size='440' address='0x000000010dfb6110' relocation_offset='288' insts_offset='304' stub_offset='368' scopes_data_offset='392' scopes_pcs_offset='400' dependencies_offset='432' method='java/lang/Math min (II)I' bytes='11' count='6874' backedge_count='1' iicount='11879' stamp='0.063'/>
+<writer thread='20739'/>
+<nmethod compile_id='4' compiler='C2' entry='0x000000010dfb6080' size='408' address='0x000000010dfb5f50' relocation_offset='288' insts_offset='304' stub_offset='336' scopes_data_offset='360' scopes_pcs_offset='368' dependencies_offset='400' method='inlining/Inline add (II)I' bytes='4' count='7535' backedge_count='1' iicount='12546' stamp='0.063'/>
+<writer thread='3335'/>
+<task_queued compile_id='5' compile_kind='osr' method='inlining/Inline addAll (I)I' bytes='31' count='1' backedge_count='14563' iicount='1' osr_bci='4' stamp='0.063' comment='backedge_count' hot_count='14563'/>
+<writer thread='20227'/>
+                            @ 11   inlining.Inline::add (4 bytes)   inline (hot)
+                            @ 19   java.lang.Math::min (11 bytes)   (intrinsic)
+<nmethod compile_id='5' compile_kind='osr' compiler='C2' entry='0x000000010dfb5d80' size='704' address='0x000000010dfb5c50' relocation_offset='288' insts_offset='304' stub_offset='592' scopes_data_offset='624' scopes_pcs_offset='648' dependencies_offset='696' oops_offset='616' method='inlining/Inline addAll (I)I' bytes='31' count='10000' backedge_count='5612' iicount='1' stamp='0.065'/>
+<writer thread='13571'/>
+<destroy_vm stamp='0.065'/>
+<tty_done stamp='0.065'/>
+</tty>
+<compilation_log thread='20227'>
+<start_compile_thread name='C2 CompilerThread0' thread='20227' process='16677' stamp='0.043'/>
+<task compile_id='2' method='java/lang/String indexOf (II)I' bytes='70' count='351' backedge_count='5100' iicount='351' stamp='0.054'>
+<phase name='parse' nodes='3' live='3' stamp='0.054'>
+<type id='634' name='int'/>
+<klass id='646' name='java/lang/String' flags='17'/>
+<method id='729' holder='646' name='indexOf' return='634' arguments='634 634' flags='1' bytes='70' iicount='352'/>
+<parse method='729' uses='352' stamp='0.054'>
+<bc code='190' bci='4'/>
+<uncommon_trap bci='4' reason='null_check' action='maybe_recompile'/>
+<bc code='156' bci='7'/>
+<branch target_bci='15' taken='168' not_taken='0' cnt='168' prob='always'/>
+<bc code='161' bci='17'/>
+<branch target_bci='22' taken='136' not_taken='32' cnt='168' prob='0.809524'/>
+<bc code='162' bci='25'/>
+<branch target_bci='63' taken='0' not_taken='136' cnt='136' prob='never'/>
+<bc code='162' bci='40'/>
+<branch target_bci='61' taken='137' not_taken='6789' cnt='6926' prob='0.0197805'/>
+<uncommon_trap bci='43' reason='predicate' action='maybe_recompile'/>
+<uncommon_trap bci='43' reason='loop_limit_check' action='maybe_recompile'/>
+<bc code='52' bci='47'/>
+<uncommon_trap bci='47' reason='null_check' action='maybe_recompile'/>
+<uncommon_trap bci='47' reason='range_check' action='make_not_entrant' comment='range_check'/>
+<bc code='160' bci='49'/>
+<branch target_bci='55' taken='6789' not_taken='0' cnt='6789' prob='always'/>
+<bc code='162' bci='40'/>
+<branch target_bci='61' taken='137' not_taken='6789' cnt='6789' prob='0.0197805'/>
+<bc code='183' bci='66'/>
+<method id='731' holder='646' name='indexOfSupplementary' return='634' arguments='634 634' flags='2' bytes='71' iicount='1'/>
+<call method='731' count='0' prof_factor='1' inline='1'/>
+<inline_fail reason='too big'/>
+<direct_call bci='66'/>
+<parse_done nodes='188' live='179' memory='49320' stamp='0.054'/>
+</parse>
+<phase_done name='parse' nodes='190' live='134' stamp='0.054'/>
+</phase>
+<phase name='optimizer' nodes='190' live='134' stamp='0.054'>
+<phase name='idealLoop' nodes='190' live='126' stamp='0.054'>
+<loop_tree>
+<loop idx='196' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='197' live='116' stamp='0.054'/>
+</phase>
+<phase name='idealLoop' nodes='197' live='116' stamp='0.054'>
+<loop_tree>
+<loop idx='196' inner_loop='1' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='210' live='122' stamp='0.054'/>
+</phase>
+<phase name='idealLoop' nodes='210' live='122' stamp='0.054'>
+<loop_tree>
+<loop idx='281' inner_loop='1' main_loop='281' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='303' live='195' stamp='0.055'/>
+</phase>
+<phase name='ccp' nodes='303' live='195' stamp='0.055'>
+<phase_done name='ccp' nodes='303' live='195' stamp='0.055'/>
+</phase>
+<phase name='idealLoop' nodes='303' live='195' stamp='0.055'>
+<loop_tree>
+<loop idx='248' inner_loop='1' pre_loop='196' >
+</loop>
+<loop idx='326' inner_loop='1' main_loop='326' >
+</loop>
+<loop idx='221' inner_loop='1' post_loop='196' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='361' live='229' stamp='0.055'/>
+</phase>
+<phase name='idealLoop' nodes='361' live='229' stamp='0.055'>
+<loop_tree>
+<loop idx='248' inner_loop='1' pre_loop='196' >
+</loop>
+<loop idx='326' inner_loop='1' main_loop='326' >
+</loop>
+<loop idx='221' inner_loop='1' post_loop='196' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='366' live='217' stamp='0.055'/>
+</phase>
+<phase name='idealLoop' nodes='366' live='217' stamp='0.055'>
+<loop_tree>
+<loop idx='248' inner_loop='1' pre_loop='196' >
+</loop>
+<loop idx='326' inner_loop='1' main_loop='326' >
+</loop>
+<loop idx='221' inner_loop='1' post_loop='196' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='369' live='208' stamp='0.055'/>
+</phase>
+<phase_done name='optimizer' nodes='372' live='208' stamp='0.055'/>
+</phase>
+<phase name='matcher' nodes='372' live='208' stamp='0.055'>
+<phase_done name='matcher' nodes='169' live='169' stamp='0.055'/>
+</phase>
+<phase name='regalloc' nodes='242' live='242' stamp='0.056'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='251' live='249' stamp='0.056'/>
+</phase>
+<phase name='output' nodes='253' live='251' stamp='0.056'>
+<phase_done name='output' nodes='278' live='263' stamp='0.056'/>
+</phase>
+<code_cache total_blobs='184' nmethods='1' adapters='135' free_code_cache='49923392' largest_free_block='49916480'/>
+<task_done success='1' nmsize='424' count='379' backedge_count='6206' stamp='0.056'/>
+</task>
+<task compile_id='3' method='java/lang/Math min (II)I' bytes='11' count='5108' backedge_count='1' iicount='10113' stamp='0.063'>
+<phase name='parse' nodes='3' live='3' stamp='0.063'>
+<type id='634' name='int'/>
+<klass id='729' name='java/lang/Math' flags='17'/>
+<method id='730' holder='729' name='min' return='634' arguments='634 634' flags='9' bytes='11' iicount='10250'/>
+<parse method='730' uses='10250' stamp='0.063'>
+<bc code='163' bci='2'/>
+<branch target_bci='9' taken='7104' not_taken='0' cnt='7104' prob='always'/>
+<parse_done nodes='32' live='31' memory='21848' stamp='0.063'/>
+</parse>
+<phase_done name='parse' nodes='33' live='18' stamp='0.063'/>
+</phase>
+<phase name='optimizer' nodes='33' live='18' stamp='0.063'>
+<phase name='ccp' nodes='33' live='18' stamp='0.063'>
+<phase_done name='ccp' nodes='33' live='18' stamp='0.063'/>
+</phase>
+<phase name='idealLoop' nodes='33' live='18' stamp='0.063'>
+<phase_done name='idealLoop' nodes='33' live='18' stamp='0.063'/>
+</phase>
+<phase_done name='optimizer' nodes='33' live='18' stamp='0.063'/>
+</phase>
+<phase name='matcher' nodes='33' live='18' stamp='0.063'>
+<phase_done name='matcher' nodes='19' live='19' stamp='0.063'/>
+</phase>
+<phase name='regalloc' nodes='25' live='25' stamp='0.063'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='27' live='27' stamp='0.063'/>
+</phase>
+<phase name='output' nodes='27' live='27' stamp='0.063'>
+<phase_done name='output' nodes='34' live='32' stamp='0.063'/>
+</phase>
+<code_cache total_blobs='185' nmethods='3' adapters='136' free_code_cache='49933056' largest_free_block='49916480'/>
+<task_done success='1' nmsize='88' count='6896' backedge_count='1' stamp='0.063'/>
+</task>
+<task compile_id='5' compile_kind='osr' method='inlining/Inline addAll (I)I' bytes='31' count='10000' backedge_count='5232' iicount='1' osr_bci='4' stamp='0.063'>
+<phase name='parse' nodes='3' live='3' stamp='0.063'>
+<type id='634' name='int'/>
+<klass id='729' name='inlining/Inline' flags='1'/>
+<method id='730' holder='729' name='addAll' return='634' arguments='634' flags='9' bytes='31' iicount='1'/>
+<parse method='730' uses='1' osr_bci='4' stamp='0.063'>
+<uncommon_trap bci='4' reason='predicate' action='maybe_recompile'/>
+<uncommon_trap bci='4' reason='loop_limit_check' action='maybe_recompile'/>
+<bc code='162' bci='6'/>
+<branch target_bci='29' taken='0' not_taken='12122' cnt='12122' prob='never'/>
+<bc code='184' bci='11'/>
+<method id='732' holder='729' name='add' return='634' arguments='634 634' flags='9' bytes='4' compile_id='4' compiler='C2' iicount='12581'/>
+<call method='732' count='12122' prof_factor='1' inline='1'/>
+<inline_success reason='inline (hot)'/>
+<parse method='732' uses='12122' stamp='0.063'>
+<parse_done nodes='104' live='101' memory='33984' stamp='0.063'/>
+</parse>
+<bc code='184' bci='19'/>
+<klass id='733' name='java/lang/Math' flags='17'/>
+<method id='734' holder='733' name='min' return='634' arguments='634 634' flags='9' bytes='11' compile_id='3' compiler='C2' iicount='11896'/>
+<call method='734' count='12122' prof_factor='1' inline='1'/>
+<intrinsic id='_min' nodes='5'/>
+<parse_done nodes='114' live='110' memory='35680' stamp='0.063'/>
+</parse>
+<phase_done name='parse' nodes='115' live='65' stamp='0.063'/>
+</phase>
+<phase name='optimizer' nodes='115' live='65' stamp='0.063'>
+<phase name='idealLoop' nodes='115' live='56' stamp='0.063'>
+<loop_tree>
+<loop idx='180' main_loop='180' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='191' live='108' stamp='0.064'/>
+</phase>
+<phase name='idealLoop' nodes='191' live='108' stamp='0.064'>
+<loop_tree>
+<loop idx='151' inner_loop='1' pre_loop='125' >
+</loop>
+<loop idx='203' inner_loop='1' main_loop='203' >
+</loop>
+<loop idx='133' inner_loop='1' post_loop='125' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='220' live='121' stamp='0.064'/>
+</phase>
+<phase name='idealLoop' nodes='220' live='121' stamp='0.064'>
+<loop_tree>
+<loop idx='151' inner_loop='1' pre_loop='125' >
+</loop>
+<loop idx='235' inner_loop='1' main_loop='235' >
+</loop>
+<loop idx='133' inner_loop='1' post_loop='125' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='261' live='134' stamp='0.064'/>
+</phase>
+<phase name='ccp' nodes='261' live='134' stamp='0.064'>
+<phase_done name='ccp' nodes='261' live='134' stamp='0.064'/>
+</phase>
+<phase name='idealLoop' nodes='261' live='134' stamp='0.064'>
+<loop_tree>
+<loop idx='151' inner_loop='1' pre_loop='125' >
+</loop>
+<loop idx='280' inner_loop='1' main_loop='280' >
+</loop>
+<loop idx='133' inner_loop='1' post_loop='125' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='319' live='151' stamp='0.064'/>
+</phase>
+<phase name='idealLoop' nodes='319' live='151' stamp='0.064'>
+<loop_tree>
+<loop idx='151' inner_loop='1' pre_loop='125' >
+</loop>
+<loop idx='280' inner_loop='1' main_loop='280' >
+</loop>
+<loop idx='133' inner_loop='1' post_loop='125' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='319' live='136' stamp='0.064'/>
+</phase>
+<phase name='idealLoop' nodes='319' live='136' stamp='0.064'>
+<loop_tree>
+<loop idx='151' inner_loop='1' pre_loop='125' >
+</loop>
+<loop idx='280' inner_loop='1' main_loop='280' >
+</loop>
+<loop idx='133' inner_loop='1' post_loop='125' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='319' live='134' stamp='0.064'/>
+</phase>
+<phase_done name='optimizer' nodes='319' live='134' stamp='0.064'/>
+</phase>
+<phase name='matcher' nodes='319' live='134' stamp='0.064'>
+<phase_done name='matcher' nodes='124' live='124' stamp='0.064'/>
+</phase>
+<phase name='regalloc' nodes='150' live='150' stamp='0.064'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='167' live='167' stamp='0.064'/>
+</phase>
+<phase name='output' nodes='169' live='169' stamp='0.064'>
+<phase_done name='output' nodes='185' live='177' stamp='0.064'/>
+</phase>
+<code_cache total_blobs='187' nmethods='5' adapters='136' free_code_cache='49931840' largest_free_block='49916480'/>
+<task_done success='1' nmsize='312' count='10000' backedge_count='5853' inlined_bytes='15' stamp='0.065'/>
+</task>
+</compilation_log>
+<compilation_log thread='20739'>
+<start_compile_thread name='C2 CompilerThread1' thread='20739' process='16677' stamp='0.043'/>
+<task compile_id='1' method='java/lang/String hashCode ()I' bytes='55' count='670' backedge_count='5215' iicount='670' stamp='0.050'>
+<phase name='matcher' nodes='47' live='47' stamp='0.050'>
+<phase_done name='matcher' nodes='32' live='32' stamp='0.051'/>
+</phase>
+<phase name='regalloc' nodes='37' live='37' stamp='0.051'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='47' live='46' stamp='0.051'/>
+</phase>
+<phase name='output' nodes='47' live='46' stamp='0.051'>
+<phase_done name='output' nodes='54' live='52' stamp='0.051'/>
+</phase>
+<phase name='matcher' nodes='48' live='48' stamp='0.051'>
+<phase_done name='matcher' nodes='33' live='33' stamp='0.051'/>
+</phase>
+<phase name='regalloc' nodes='38' live='38' stamp='0.051'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='50' live='49' stamp='0.051'/>
+</phase>
+<phase name='output' nodes='50' live='49' stamp='0.051'>
+<phase_done name='output' nodes='57' live='55' stamp='0.051'/>
+</phase>
+<phase name='matcher' nodes='48' live='48' stamp='0.051'>
+<phase_done name='matcher' nodes='33' live='33' stamp='0.051'/>
+</phase>
+<phase name='regalloc' nodes='38' live='38' stamp='0.051'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='50' live='49' stamp='0.051'/>
+</phase>
+<phase name='output' nodes='50' live='49' stamp='0.051'>
+<phase_done name='output' nodes='57' live='55' stamp='0.051'/>
+</phase>
+<phase name='matcher' nodes='49' live='49' stamp='0.051'>
+<phase_done name='matcher' nodes='34' live='34' stamp='0.051'/>
+</phase>
+<phase name='regalloc' nodes='39' live='39' stamp='0.051'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='53' live='52' stamp='0.051'/>
+</phase>
+<phase name='output' nodes='53' live='52' stamp='0.051'>
+<phase_done name='output' nodes='60' live='58' stamp='0.051'/>
+</phase>
+<phase name='matcher' nodes='50' live='50' stamp='0.051'>
+<phase_done name='matcher' nodes='35' live='35' stamp='0.051'/>
+</phase>
+<phase name='regalloc' nodes='40' live='40' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='56' live='55' stamp='0.052'/>
+</phase>
+<phase name='output' nodes='56' live='55' stamp='0.052'>
+<phase_done name='output' nodes='63' live='61' stamp='0.052'/>
+</phase>
+<phase name='matcher' nodes='51' live='51' stamp='0.052'>
+<phase_done name='matcher' nodes='36' live='36' stamp='0.052'/>
+</phase>
+<phase name='regalloc' nodes='41' live='41' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='59' live='58' stamp='0.052'/>
+</phase>
+<phase name='output' nodes='59' live='58' stamp='0.052'>
+<phase_done name='output' nodes='66' live='64' stamp='0.052'/>
+</phase>
+<phase name='matcher' nodes='52' live='52' stamp='0.052'>
+<phase_done name='matcher' nodes='37' live='37' stamp='0.052'/>
+</phase>
+<phase name='regalloc' nodes='42' live='42' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='62' live='61' stamp='0.052'/>
+</phase>
+<phase name='output' nodes='62' live='61' stamp='0.052'>
+<phase_done name='output' nodes='69' live='67' stamp='0.052'/>
+</phase>
+<phase name='matcher' nodes='48' live='48' stamp='0.052'>
+<phase_done name='matcher' nodes='33' live='33' stamp='0.052'/>
+</phase>
+<phase name='regalloc' nodes='38' live='38' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='50' live='49' stamp='0.052'/>
+</phase>
+<phase name='output' nodes='50' live='49' stamp='0.052'>
+<phase_done name='output' nodes='57' live='55' stamp='0.052'/>
+</phase>
+<phase name='matcher' nodes='43' live='43' stamp='0.052'>
+<phase_done name='matcher' nodes='31' live='31' stamp='0.052'/>
+</phase>
+<phase name='regalloc' nodes='36' live='36' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='46' live='45' stamp='0.052'/>
+</phase>
+<phase name='output' nodes='46' live='45' stamp='0.052'>
+<phase_done name='output' nodes='53' live='51' stamp='0.052'/>
+</phase>
+<phase name='matcher' nodes='43' live='43' stamp='0.052'>
+<phase_done name='matcher' nodes='31' live='31' stamp='0.052'/>
+</phase>
+<phase name='regalloc' nodes='36' live='36' stamp='0.052'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='46' live='45' stamp='0.053'/>
+</phase>
+<phase name='output' nodes='46' live='45' stamp='0.053'>
+<phase_done name='output' nodes='53' live='51' stamp='0.053'/>
+</phase>
+<phase name='matcher' nodes='43' live='43' stamp='0.053'>
+<phase_done name='matcher' nodes='31' live='31' stamp='0.053'/>
+</phase>
+<phase name='regalloc' nodes='36' live='36' stamp='0.053'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='46' live='45' stamp='0.053'/>
+</phase>
+<phase name='output' nodes='46' live='45' stamp='0.053'>
+<phase_done name='output' nodes='53' live='51' stamp='0.053'/>
+</phase>
+<phase name='matcher' nodes='47' live='47' stamp='0.053'>
+<phase_done name='matcher' nodes='33' live='33' stamp='0.053'/>
+</phase>
+<phase name='regalloc' nodes='38' live='38' stamp='0.053'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='53' live='51' stamp='0.053'/>
+</phase>
+<phase name='output' nodes='53' live='51' stamp='0.053'>
+<phase_done name='output' nodes='60' live='57' stamp='0.053'/>
+</phase>
+<phase name='matcher' nodes='46' live='46' stamp='0.053'>
+<phase_done name='matcher' nodes='34' live='34' stamp='0.053'/>
+</phase>
+<phase name='regalloc' nodes='39' live='39' stamp='0.053'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='55' live='54' stamp='0.053'/>
+</phase>
+<phase name='output' nodes='55' live='54' stamp='0.053'>
+<phase_done name='output' nodes='62' live='60' stamp='0.053'/>
+</phase>
+<phase name='matcher' nodes='42' live='42' stamp='0.053'>
+<phase_done name='matcher' nodes='30' live='30' stamp='0.053'/>
+</phase>
+<phase name='regalloc' nodes='35' live='35' stamp='0.053'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='43' live='42' stamp='0.053'/>
+</phase>
+<phase name='output' nodes='43' live='42' stamp='0.053'>
+<phase_done name='output' nodes='50' live='48' stamp='0.053'/>
+</phase>
+<phase name='parse' nodes='3' live='3' stamp='0.053'>
+<type id='634' name='int'/>
+<klass id='646' name='java/lang/String' flags='17'/>
+<method id='729' holder='646' name='hashCode' return='634' flags='1' bytes='55' iicount='676'/>
+<parse method='729' uses='676' stamp='0.053'>
+<bc code='154' bci='6'/>
+<branch target_bci='53' taken='275' not_taken='236' cnt='511' prob='0.53816'/>
+<bc code='190' bci='13'/>
+<uncommon_trap bci='13' reason='null_check' action='maybe_recompile'/>
+<bc code='158' bci='14'/>
+<branch target_bci='53' taken='0' not_taken='236' cnt='236' prob='never'/>
+<bc code='162' bci='30'/>
+<branch target_bci='48' taken='237' not_taken='8349' cnt='8586' prob='0.0276031'/>
+<uncommon_trap bci='33' reason='predicate' action='maybe_recompile'/>
+<uncommon_trap bci='33' reason='loop_limit_check' action='maybe_recompile'/>
+<bc code='52' bci='39'/>
+<uncommon_trap bci='39' reason='range_check' action='make_not_entrant' comment='range_check'/>
+<bc code='190' bci='29'/>
+<uncommon_trap bci='29' reason='null_check' action='maybe_recompile'/>
+<bc code='162' bci='30'/>
+<branch target_bci='48' taken='237' not_taken='8349' cnt='8349' prob='0.0276031'/>
+<parse_done nodes='189' live='183' memory='47528' stamp='0.054'/>
+</parse>
+<phase_done name='parse' nodes='190' live='123' stamp='0.054'/>
+</phase>
+<phase name='optimizer' nodes='190' live='123' stamp='0.054'>
+<phase name='idealLoop' nodes='191' live='103' stamp='0.054'>
+<loop_tree>
+<loop idx='191' inner_loop='1' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='195' live='95' stamp='0.054'/>
+</phase>
+<phase name='idealLoop' nodes='195' live='95' stamp='0.054'>
+<loop_tree>
+<loop idx='200' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='221' live='101' stamp='0.054'/>
+</phase>
+<phase name='idealLoop' nodes='221' live='101' stamp='0.054'>
+<loop_tree>
+<loop idx='293' inner_loop='1' main_loop='293' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='315' live='168' stamp='0.054'/>
+</phase>
+<phase name='ccp' nodes='315' live='168' stamp='0.054'>
+<phase_done name='ccp' nodes='315' live='168' stamp='0.054'/>
+</phase>
+<phase name='idealLoop' nodes='315' live='168' stamp='0.054'>
+<loop_tree>
+<loop idx='259' inner_loop='1' pre_loop='200' >
+</loop>
+<loop idx='348' inner_loop='1' main_loop='348' >
+</loop>
+<loop idx='232' inner_loop='1' post_loop='200' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='378' live='192' stamp='0.055'/>
+</phase>
+<phase name='idealLoop' nodes='378' live='192' stamp='0.055'>
+<loop_tree>
+<loop idx='259' inner_loop='1' pre_loop='200' >
+</loop>
+<loop idx='348' inner_loop='1' main_loop='348' >
+</loop>
+<loop idx='232' inner_loop='1' post_loop='200' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='384' live='178' stamp='0.055'/>
+</phase>
+<phase name='idealLoop' nodes='384' live='178' stamp='0.055'>
+<loop_tree>
+<loop idx='259' inner_loop='1' pre_loop='200' >
+</loop>
+<loop idx='348' inner_loop='1' main_loop='348' >
+</loop>
+<loop idx='232' inner_loop='1' post_loop='200' >
+</loop>
+</loop_tree>
+<phase_done name='idealLoop' nodes='387' live='169' stamp='0.055'/>
+</phase>
+<phase_done name='optimizer' nodes='390' live='169' stamp='0.055'/>
+</phase>
+<phase name='matcher' nodes='390' live='169' stamp='0.055'>
+<phase_done name='matcher' nodes='150' live='150' stamp='0.055'/>
+</phase>
+<phase name='regalloc' nodes='190' live='190' stamp='0.055'>
+<regalloc attempts='2' success='1'/>
+<phase_done name='regalloc' nodes='218' live='209' stamp='0.056'/>
+</phase>
+<phase name='output' nodes='220' live='211' stamp='0.056'>
+<phase_done name='output' nodes='239' live='221' stamp='0.056'/>
+</phase>
+<code_cache total_blobs='183' nmethods='2' adapters='135' free_code_cache='49934144' largest_free_block='49916480'/>
+<task_done success='1' nmsize='376' count='835' backedge_count='7620' stamp='0.056'/>
+</task>
+<task compile_id='4' method='inlining/Inline add (II)I' bytes='4' count='5081' backedge_count='1' iicount='10086' stamp='0.063'>
+<phase name='parse' nodes='3' live='3' stamp='0.063'>
+<type id='634' name='int'/>
+<klass id='729' name='inlining/Inline' flags='1'/>
+<method id='730' holder='729' name='add' return='634' arguments='634 634' flags='9' bytes='4' iicount='10191'/>
+<parse method='730' uses='10191' stamp='0.063'>
+<parse_done nodes='24' live='23' memory='20680' stamp='0.063'/>
+</parse>
+<phase_done name='parse' nodes='25' live='12' stamp='0.063'/>
+</phase>
+<phase name='optimizer' nodes='25' live='12' stamp='0.063'>
+<phase name='ccp' nodes='25' live='12' stamp='0.063'>
+<phase_done name='ccp' nodes='25' live='12' stamp='0.063'/>
+</phase>
+<phase name='idealLoop' nodes='25' live='12' stamp='0.063'>
+<phase_done name='idealLoop' nodes='25' live='12' stamp='0.063'/>
+</phase>
+<phase_done name='optimizer' nodes='25' live='12' stamp='0.063'/>
+</phase>
+<phase name='matcher' nodes='25' live='12' stamp='0.063'>
+<phase_done name='matcher' nodes='15' live='15' stamp='0.063'/>
+</phase>
+<phase name='regalloc' nodes='17' live='17' stamp='0.063'>
+<regalloc attempts='0' success='1'/>
+<phase_done name='regalloc' nodes='18' live='18' stamp='0.063'/>
+</phase>
+<phase name='output' nodes='18' live='18' stamp='0.063'>
+<phase_done name='output' nodes='23' live='23' stamp='0.063'/>
+</phase>
+<code_cache total_blobs='186' nmethods='4' adapters='136' free_code_cache='49932608' largest_free_block='49916480'/>
+<task_done success='1' nmsize='56' count='7581' backedge_count='1' stamp='0.063'/>
+</task>
+</compilation_log>
+<hotspot_log_done stamp='0.065'/>
+</hotspot_log>
