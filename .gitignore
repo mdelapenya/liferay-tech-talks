@@ -7,3 +7,7 @@
 **/*.jar
 **/build/*.*
 **/.gradle/*.*
+**/.idea
+**/*.im
+**/.idea
+**/*.iml
